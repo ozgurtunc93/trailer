@@ -1,0 +1,48 @@
+<div class="container-fluid page" style="padding: 0 !important;">
+  <!--<div class="swiper-container" [swiper]="landConfig">
+        <div class="swiper-wrapper">
+              <div *ngFor="let itm of store.LAND[0].playlistContent" class="swiper-slide">
+                    <div style="width: 100%">
+                          <a [routerLink]="store.LAND[0].isCollection == 0 ? ['../../',itm.contentTypeName.toLowerCase(),'content', itm.contentID] : ['../../','storelist', itm.contentID]">
+                                <img class="img-fluid" src="http://npapi.exstudios.com/Uploads/img/media/{{ itm.worldSliderArt }}" alt="" width="100%">
+                                <div style="position: absolute;bottom:10%;right:10%;"><h4>{{itm.contentName}}</h4></div> 
+                          </a>
+                    </div>
+              </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+  </div>
+  <div class="store-container">
+        <div class="store-playlists" *ngFor="let itm of store.OTHERS">
+              <div class="col-xs-12">
+                    <h3 class="store-playlist-title">
+                          <a>{{itm.playlistName}}</a>
+                    </h3>
+              </div>
+              <div class="store-playlist">
+                    <div class="swiper-container" [swiper]="itm.isCollection == 1 ? collectionConfig : (itm.playlistContentType == 1 ? movieConfig : showConfig)" style="z-index: 1;">
+                          <div class="swiper-wrapper" style="z-index: 1;">
+                                <div *ngFor="let subItm of itm.playlistContent" class="swiper-slide">
+                                      <div style="width: 100%">
+                                            <a [routerLink]="itm.isCollection == 0 ? ['../../',subItm.contentTypeName.toLowerCase(),'content', subItm.contentID] : ['../../','storelist', subItm.contentID]">
+                                                  <img class="img-fluid"  src="http://npapi.exstudios.com/Uploads/img/media/middle/{{ subItm.worldPosterArt ? subItm.worldPosterArt : 'noimage.jpeg'}}" alt="" width="100%">
+                                                  <span class="content-title">{{subItm.contentName}}</span>
+                                            </a>
+                                          
+                                      </div>
+                                </div>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                    </div>
+              </div>
+        </div>
+  </div>-->
+<h2>{{ 'HOME.TITLE' | translate }}</h2>
+
+</div>
+

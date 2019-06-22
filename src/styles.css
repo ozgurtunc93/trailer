@@ -1,0 +1,74 @@
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-width: 1920px !important;
+    margin: 0 auto;
+    color:white;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    background-color: #232530;
+}
+.container-fluid {
+    margin-top: 56px;
+    min-height: 50vw;
+}
+.page {
+    position: relative;
+    display: inline-block;
+    padding: 0 40px;
+    line-height: 1.2;
+}
+.p-0 {
+    padding: 0 !important;
+}
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+    pointer-events: inherit;
+}
+.shadow-filter{
+    filter:drop-shadow(2px 4px 6px black);
+}
+.store-container {
+    margin: 20px 3%;
+  }
+  .store-playlists {
+    margin:20px auto;
+  }
+  
+  .store-playlist-title {
+    font-size: 20px;
+      line-height: 27px;
+      font-weight: 500;
+      color: #fff;
+  }
+  .content-title {
+    color: #fff;
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+    line-height: 1.3;
+    cursor:pointer;
+  }
+  .content-title:hover{
+    text-decoration: none;
+  }
+@media all and (min-width:1200px) {
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+	
+	
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+	
+}
+
+@media all and (max-width: 479px) {
+	
+}

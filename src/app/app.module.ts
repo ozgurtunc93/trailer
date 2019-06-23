@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 
 import { ApiService } from './provider/api.services';
-import { SwiperModule } from 'ngx-swiper-wrapper/dist/index';
+import { SwiperModule } from 'ngx-swiper-wrapper';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -34,6 +34,7 @@ enableProdMode();
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
+    imports:[RouterModule.forRoot(appRoutes,{useHash:true})],
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

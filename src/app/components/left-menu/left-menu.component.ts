@@ -1,4 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import { ApiService } from '../../provider/api.services';
+
 
 @Component({
   selector: 'app-left-menu',
@@ -6,13 +8,24 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
   styleUrls: ['./left-menu.component.css']
 })
 export class LeftMenuComponent implements OnInit {
+  categories: any;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private apiService: ApiService) {
     this.renderer.addClass(document.body, 'modal-open');
    }
    
   ngOnInit() {
+    this.getData();
   }
+
+
+
+  getData() {
+    this.apiService.getData("Category/CategoryList").then((result) => {
+      this.categories = result;
+    });
+  };
+
 
   openNav() {
     console.log(1);

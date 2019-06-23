@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { JwtHelperService } from '@auth0/angular-jwt';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { map, catchError } from 'rxjs/operators';
 
@@ -15,9 +16,7 @@ let token ="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1ZXN0IiwidW5pcXV
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { 
-
-  }
+  constructor(private http: HttpClient,private spinner: NgxSpinnerService) { }
 
   postData(parameters: any, func: String,body :string) {
     return new Promise((resolve, reject) => {
@@ -37,6 +36,9 @@ export class ApiService {
  
 
   getData(parameters: string) {
+  /** spinner starts on init */
+  this.spinner.show();
+
 
     return new Promise((resolve, reject) => {
       let headers = new HttpHeaders({
@@ -50,7 +52,11 @@ export class ApiService {
     //   const helper = new JwtHelperService();
       this.http.get(url,{headers}).subscribe(res => {
         //   const decodedToken = helper.decodeToken(res);
-
+        console.info('1',res)
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+      }, 1000);
           resolve(res);
 
       }, (err) => {

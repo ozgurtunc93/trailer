@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,17 +7,19 @@ import { AppComponent } from './app.component';
 import { StoreComponent } from './store/store.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 
 import { ApiService } from './provider/api.services';
 import { SwiperModule } from 'ngx-swiper-wrapper/dist/index';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { LeftMenuComponent } from './components/left-menu/left-menu.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
+enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

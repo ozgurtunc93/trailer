@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ApiService } from '../provider/api.services';
@@ -13,7 +13,7 @@ import { ApiService } from '../provider/api.services';
 export class StoreComponent {
   store: any = [];
   param: string;
-  storeChannel: any = [];
+  storeLand: any = [];
   subStores = [{ "ID": "1", "name": "Watch" }, { "ID": "2", "name": "Movies" }, { "ID": "3", "name": "TV" }, { "ID": "4", "name": "Collections" }, { "ID": "5", "name": "Videos" }];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService,private router: Router) {
@@ -24,27 +24,26 @@ export class StoreComponent {
  
   ngOnInit() {
     this.route.params.subscribe(val => {
-      this.param = this.route.snapshot.paramMap.get("p1");
-      let storePage = this.subStores.find(x => x.name == this.param);
+      // this.param = this.route.snapshot.paramMap.get("p1");
+      // let storePage = this.subStores.find(x => x.name == this.param);
 
-      if (storePage == undefined) {
-        this.getData('1');
-      } else {
-        this.getData(storePage.ID);
-      }
+      // if (storePage == undefined) {
+      //   this.getData('1');
+      // } else {
+      //   this.getData(storePage.ID);
+      // }
+      this.getData('1');
+
     });
   }
 
   getData(id: string) {
-    this.apiService.getData("Movies/GetStore?storeId=1").then((result) => {
+    this.apiService.getData("Store/GetStore?storeId=2").then((result) => {
       this.store = result;
-      this.store = JSON.parse(this.store);
-      console.log(this.store);
-      var ind = this.store.OTHERS.findIndex(x => x.isChannel == 1);
-      if (ind > -1) {
-        this.storeChannel = this.store.OTHERS[ind];
-        this.store.OTHERS.splice(ind, 1);
-      }
+     
+        this.storeLand = this.store.data.catalog[0];
+        this.store.data.catalog.splice(0, 1);
+     
     });
   };
 
@@ -131,7 +130,7 @@ export class StoreComponent {
   };
 
   public collectionConfig:SwiperConfigInterface = {
-    slidesPerView: 4,
+    slidesPerView: 3,
     spaceBetween: 40,
     observer: true,
     navigation: {

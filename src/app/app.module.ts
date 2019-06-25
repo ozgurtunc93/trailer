@@ -14,6 +14,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import 'hammerjs/hammer';
+import { ContentComponent } from './content/content.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -26,7 +28,8 @@ enableProdMode();
     StoreComponent,
     HeaderComponent,
     FooterComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    ContentComponent
   ],
   imports: [
     SwiperModule,
@@ -34,7 +37,6 @@ enableProdMode();
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    imports:[RouterModule.forRoot(appRoutes,{useHash:true})],
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

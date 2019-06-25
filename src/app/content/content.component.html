@@ -1,0 +1,87 @@
+<div class="container-fluid content-detail-container" style="background-image : url('https://policyviz.com/wp-content/uploads/2018/12/Avengers-Infinity-War-poster-1140x700.jpg'); background-repeat: no-repeat;
+background-attachment: fixed; 
+background-position: center; 
+background-size: cover;
+position: relative;"  >
+  <span class="content-background-filter">
+     
+  </span>
+  <div class="row" style="padding: 2% 10%">
+    <div class="col-sm-3 text-center">
+      <img class="img-fluid shodow-filter"
+        src="{{ contentDetail.data.moviesDetailsPicture[0].picturePath}}">
+      <div style="text-align: center; margin-top:20px;">
+        <button type="button" class="btn btn-detail">{{'Trailer' | translate }}</button>
+      </div>
+      <!-- <div class="content-social-media">
+        <a *ngIf="contentDetail.facebook" href="{{contentDetail.facebook[0].link}}" target="_blank"><img 
+            src="../../assets/image/logo/facebook.png" class="content-social-image"></a>
+        <a  *ngIf="contentDetail.twitter" href="{{contentDetail.twitter[0].link}}" target="_blank"><img
+            src="../../assets/image/logo/twitter.png" class="content-social-image"></a>
+        <a *ngIf="contentDetail.instagram" href="{{contentDetail.instagram[0].link}}" target="_blank"><img 
+            src="../../assets/image/logo/instagram.png" class="content-social-image"></a>
+        <a *ngIf="contentDetail.youTube" href="{{contentDetail.youTube[0].link}}" target="_blank"><img 
+            src="../../assets/image/logo/youtube.png" class="content-social-image"></a>
+      </div> -->
+    </div>
+    <div class="col-sm-9">
+      <div>
+        <h2>{{contentDetail.data.name}}</h2>
+        <span>{{contentDetail.data.year}}</span>&nbsp;|&nbsp;
+        <span>{{contentDetail.data.runTime}}</span>&nbsp;|&nbsp;
+        <!-- <span>{{contentDetail.data.runTime}}</span>&nbsp;|&nbsp; -->
+        <span *ngFor="let itm of contentDetail.data.moviesDetailsCategory; let last = last;  let index = index;">{{itm.categoryName}}{{last ? ' ' : ', '}}</span>&nbsp;|&nbsp;
+        <span *ngFor="let itm of contentDetail.data.moviesDetailsCountry; let last = last;  let index = index;">{{itm.country}}{{last ? ' ' : ', '}}</span>&nbsp;|&nbsp;
+        <span *ngFor="let itm of contentDetail.data.moviesDetailsLanguage let last = last;  let index = index;">{{itm.language}}{{last ? ' ' : ', '}}</span>
+
+        <br><br>
+        <h6>{{contentDetail.data.description}}</h6>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 2% 10%">
+    <div class="swiper-container" [swiper]="contentArtistConfig" style="z-index: 1; width: 100%;">
+      <div class="swiper-wrapper" style="z-index: 1;">
+        <div *ngFor="let subItm of contentDetail.data.moviesDetailsCast" class="swiper-slide">
+          <div class="text-center">
+            <a [routerLink]="['../../','artist', subItm.artistID]">
+              <img class="img-fluid"
+                src="https://upload.wikimedia.org/wikipedia/commons/5/51/Brad_Pitt_Fury_2014.jpg" style="  object-fit: cover; ">
+                <p style="margin-top:3px;color:white;">{{subItm.name}}</p>
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+  <!-- <div class="row" style="padding: 2% 10%;" *ngIf="seasons && param == 'shows'">
+      <div class="dropdown">
+          <button class="btn btn-dropdown btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{tempSeasonNumber}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" *ngFor="let itm of seasons.seasons;let i = index" (click)="showid=seasons.seasons[i].ID; tempSeasonNumber= seasons.seasons[i].seasonNumber; getEpisodes(showid, param);">{{itm.seasonNumber}}</a>
+          </div>
+        </div>
+
+        <div class="swiper-container" [swiper]="contentEpisodesConfig" style="z-index: 1; width: 100%;" (swiperTransitionStart)="onSwiperEvent('transitionStart')" #swiperr>
+            <div class="swiper-wrapper" style="z-index: 1;">
+              <div *ngFor="let subItm of episodes.episodes" class="swiper-slide">
+                <div class="text-center" style="border-radius:50%; ">
+                  <a [routerLink]="['../../../',subItm.layerTypeName.toLowerCase(),'content', subItm.ID]">
+                    <img class="img-fluid shadow-filter"  src="http://npapi.exstudios.com/Uploads/img/media/middle/{{ subItm.worldPosterArt ? subItm.worldPosterArt : 'noimage.jpeg'}}" style="  object-fit: cover; ">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+
+  </div> -->
+</div>

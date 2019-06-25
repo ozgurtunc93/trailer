@@ -10,9 +10,7 @@ import { ApiService } from '../../provider/api.services';
 export class LeftMenuComponent implements OnInit {
   categories: any;
 
-  constructor(private renderer: Renderer2, private apiService: ApiService) {
-    this.renderer.addClass(document.body, 'modal-open');
-   }
+  constructor (private apiService: ApiService) {}
    
   ngOnInit() {
     this.getData();
@@ -29,9 +27,9 @@ export class LeftMenuComponent implements OnInit {
 
   openNav() {
     console.log(1);
-    document.getElementById("mySidenav").style.width = "200px";
+    document.getElementById("mySidenav").style.width = "100%";
     document.getElementById("left-btn").style.display  = "none";
-    this.renderer.addClass(document.body, 'xx');
+    // this.renderer.addClass(document.body, 'xx');
 
     // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
   }

@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 
 let apiURL = "http://kodummu.org/";
 
-let token ="eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1ZXN0IiwidW5pcXVlX25hbWUiOiJndWVzdEBtYWlsLmNvbSIsImZhbWlseV9uYW1lIjoiZ3Vlc3QiLCJuYmYiOjE1NjEyMDk2NTgsImV4cCI6MTU2MTI5NjA1OCwiaWF0IjoxNTYxMjA5NjU4fQ.sgz2hGJBUHV45NJWevAoONBmncyQ7Fp-q2HRrGbM3erIvL3AHqefv_0Q7v2hSnr3EAuUfkj32XD7P5oFMB9yGA";
+let token = localStorage.getItem('userToken');
 
 
 

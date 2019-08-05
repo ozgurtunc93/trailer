@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/provider/api.services';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  headers: { "ID": string; "name": string; }[];
+  headers: any=[];
 
-  constructor() { }
-
+  constructor (private apiService: ApiService) {}
+   
   ngOnInit() {
-    this.headers = [{"ID":"1","name":"Watch"},{"ID":"2","name":"Movies"},{"ID":"3","name":"TV"},{"ID":"4","name":"Collections"},{"ID":"5","name":"Videos"}];
-
+    this.getData();
   }
+
+
+
+  getData() {
+    this.apiService.getData("/Menu/GetMenuListByType?menuType=1").then((result) => {
+      console.info(result.data[0].menuDetails)
+      this.headers = result.data[0].menuDetails;
+    });
+  };
 
 }

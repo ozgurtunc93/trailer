@@ -1,12 +1,12 @@
 <div class="container-fluid page" style="padding: 0 !important;">
       <div class="swiper-container" [swiper]="landConfig">
             <div class="swiper-wrapper">
-                  <div *ngFor="let itm of storeLand.moviesDetailLights" class="swiper-slide">
+                  <div *ngFor="let itm of storeLand.MoviesDetailLights" class="swiper-slide">
                         <div style="width: 100%">
                               <a [routerLink]="">
-                                    <img class="img-fluid" src="{{itm.lpPath}}" alt="" width="100%">
+                                    <img class="img-fluid" src="{{itm.LpPath}}" alt="" width="100%">
                                     <div style="position: absolute;bottom:10%;right:10%;">
-                                          <h4>{{itm.name}}</h4>
+                                          <h4>{{itm.Name}}</h4>
                                     </div>
                               </a>
                         </div>
@@ -18,7 +18,7 @@
 
       </div>
       <div class="store-container">
-            <div class="store-playlists" *ngFor="let itm of store.data.catalog">
+            <div class="store-playlists" *ngFor="let itm of store.data.Catalog">
                   <div class="col-xs-12">
                         <h3 class="store-playlist-title">
                               <a>{{itm.name}}</a>
@@ -26,20 +26,20 @@
                   </div>
                   <div class="store-playlist">
                         <div class="swiper-container"
-                              [swiper]="itm.catalogTypeName == 'Banner' ? collectionConfig : showConfig"
+                              [swiper]="itm.CatalogTypeName == 'Banner' ? collectionConfig : showConfig"
                               style="z-index: 1;">
                               <div class="swiper-wrapper" style="z-index: 1;">
-                                    <div *ngFor="let subItm of itm.moviesDetailLights" class="swiper-slide">
+                                    <div *ngFor="let subItm of itm.MoviesDetailLights" class="swiper-slide">
                                           <div style="width: 100%">
                                                 <div class="box">
                                                       <img id="img" class="img-fluid content-image"
-                                                            src="{{itm.catalogTypeName == 'Banner' ? subItm.largeHorizontalPath : subItm.standartVerticalPath }}"
+                                                            src="{{itm.CatalogTypeName == 'Banner' ? subItm.LargeHorizontalPath : subItm.StandartVerticalPath }}"
                                                             alt="" width="100%">
                                                       <div class="box-content">
                                                             <h3 class="title"> <img class="icon"
                                                                         src="assets/img/imdb.png"
                                                                         style="max-width:50px;z-index: 2;">
-                                                                        <span style="vertical-align: text-top">{{subItm.imdbRating}}</span>
+                                                                        <span style="vertical-align: text-top">{{subItm.ImdbRating}}</span>
                                                             </h3>
                                                       </div>
                                                       <svg *ngIf="itm.catalogTypeName != 'Banner'" class="curve2" x="0px" y="0px" width="150px" height="150px"
@@ -49,7 +49,7 @@
                                                             </path>
                                                       </svg>
                                                 </div>
-                                                <h5 class="tt" style="margin-top:5px; ">{{subItm.name}}</h5>
+                                                <h5 class="tt" style="margin-top:5px; ">{{subItm.Name}}</h5>
 
                                           </div>
                                     </div>

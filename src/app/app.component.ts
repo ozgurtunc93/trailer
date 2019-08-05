@@ -16,20 +16,8 @@ export class AppComponent implements OnInit {
   constructor (private http: HttpClient) {}
 
   ngOnInit() {
-    this.getData();
   }
 
-  getData() {
-    this.http.get("http://kodummu.org/Token/GuestToken").subscribe(res => {
-      console.info(res)
-      this.token =  res;
-    
-      localStorage.setItem('userToken', this.token.token);
-    }, (err) => {
-        console.log("Patladi",err);  
-    });
-
-  };
 
 
 }

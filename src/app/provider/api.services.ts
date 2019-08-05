@@ -5,7 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 import { map, catchError } from 'rxjs/operators';
 
-let apiURL = "http://kodummu.org/";
+let apiURL = "http://test.kodummu.org/api";
 
 let token = localStorage.getItem('userToken');
 
@@ -18,18 +18,16 @@ export class ApiService {
 
   constructor(private http: HttpClient,private spinner: NgxSpinnerService) { }
 
-  postData(parameters: any, func: String,body :string) {
+  postData(parameters: any,body :any) {
     return new Promise((resolve, reject) => {
-      let headers = new HttpHeaders().set('apiKey', token);
-       let url = apiURL + func + parameters ;
+      // let headers = new HttpHeaders().set('apiKey', token);
+       let url = apiURL  + parameters ;
        console.log(body,"Body");
-       this.http.post(url,body, { headers: headers }).subscribe(res => {
+       this.http.post(url,body).subscribe(res => {
         console.info("postData", res);
         resolve(res);
       }, (err) => {
-        resolve(err);
-        //this.app.getActiveNav().push(ErrorPage);
-       
+        resolve(err);       
       });
     });
   }
@@ -44,8 +42,7 @@ export class ApiService {
       let headers = new HttpHeaders({
         'Content-Type':'application/json;charset=utf-8',
         'Access-Control-Allow-Orgin':'*',
-        'Access-Control-Allow-Methods':'*',
-        'token': token
+        'Access-Control-Allow-Methods':'*'
       });  
 
       let url = apiURL + parameters;

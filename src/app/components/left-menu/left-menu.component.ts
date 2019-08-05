@@ -19,7 +19,7 @@ export class LeftMenuComponent implements OnInit {
 
 
   getData() {
-    this.apiService.getData("Category/CategoryList").then((result) => {
+    this.apiService.getData("/Category/GetCategoryList").then((result) => {
       this.categories = result;
     });
   };

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, enableProdMode } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { StoreComponent } from './store/store.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
+import { ContentComponent } from './content/content.component';
+import { LoginComponent } from './login/login.component';
 
 import { ApiService } from './provider/api.services';
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -15,7 +18,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import 'hammerjs/hammer';
-import { ContentComponent } from './content/content.component';
+
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -29,11 +32,13 @@ enableProdMode();
     HeaderComponent,
     FooterComponent,
     LeftMenuComponent,
-    ContentComponent
+    ContentComponent,
+    LoginComponent
   ],
   imports: [
     SwiperModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,

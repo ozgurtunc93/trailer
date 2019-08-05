@@ -38,11 +38,11 @@ export class StoreComponent {
   }
 
   getData(id: string) {
-    this.apiService.getData("Store/GetStore?storeId=2").then((result) => {
+    this.apiService.getData("/Store/Get?storeId=1").then((result) => {
       this.store = result;
      
-        this.storeLand = this.store.data.catalog[0];
-        this.store.data.catalog.splice(0, 1);
+        this.storeLand = this.store.data.Catalog[0];
+        this.store.data.Catalog.splice(0, 1);
      
     });
   };

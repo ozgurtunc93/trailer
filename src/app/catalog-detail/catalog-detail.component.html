@@ -1,0 +1,44 @@
+<div class="store-container">
+    <div class="store-playlists" *ngFor="let itm of catalogDetail.data">
+          <div class="col-xs-12">
+                <h3 class="store-playlist-title">
+                      <a>{{itm.Name}}</a>
+                </h3>
+          </div>
+          <div class="store-playlist">
+                <div class="swiper-container"
+                      [swiper]="showConfig"
+                      style="z-index: 1;">
+                      <div class="swiper-wrapper" style="z-index: 1;">
+                            <div *ngFor="let subItm of itm.MoviesDetailLights" class="swiper-slide">
+                                  <div style="width: 100%">
+                                        <div class="box">
+                                              <img id="img" class="img-fluid content-image"
+                                                    src="{{itm.CatalogTypeName == 'Banner' ? subItm.LargeHorizontalPath : subItm.StandartVerticalPath }}"
+                                                    alt="" width="100%">
+                                              <div class="box-content">
+                                                    <h3 class="title"> <img class="icon"
+                                                                src="assets/img/imdb.png"
+                                                                style="max-width:50px;z-index: 2;">
+                                                                <span style="vertical-align: text-top">{{subItm.ImdbRating}}</span>
+                                                    </h3>
+                                              </div>
+                                              <svg *ngIf="itm.catalogTypeName != 'Banner'" class="curve2" x="0px" y="0px" width="150px" height="150px"
+                                                    viewBox="0 0 150 50">
+                                                    <path
+                                                          d="M1.114,7.567C87.544-33.817,150,150.5,150,150.5H1.361L1.114,7.567z">
+                                                    </path>
+                                              </svg>
+                                        </div>
+                                        <h5 class="tt" style="margin-top:5px; ">{{subItm.Name}}</h5>
+
+                                  </div>
+                            </div>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                      <div class="swiper-button-prev"></div>
+                      <div class="swiper-button-next"></div>
+                </div>
+          </div>
+    </div>
+</div>

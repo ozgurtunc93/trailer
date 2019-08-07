@@ -1,64 +1,36 @@
-import { Component,OnInit} from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../provider/api.services';
-// import { NgxSpinnerService } from 'ngx-spinner';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-store',
-  templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+  selector: 'app-catalog-detail',
+  templateUrl: './catalog-detail.component.html',
+  styleUrls: ['./catalog-detail.component.css']
 })
+export class CatalogDetailComponent implements OnInit {
 
-export class StoreComponent {
-  store: any = [];
-  param: string;
-  storeLand: any = [];
-  subStores = [{ "ID": "1", "name": "Watch" }, { "ID": "2", "name": "Movies" }, { "ID": "3", "name": "TV" }, { "ID": "4", "name": "Collections" }, { "ID": "5", "name": "Videos" }];
-
-  constructor(private route: ActivatedRoute, private apiService: ApiService,private router: Router) {
  
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  catalogDetail: any;
+  param: any;
 
-  }
- 
+  constructor (private route: ActivatedRoute, private apiService: ApiService,private router: Router) {}
+   
   ngOnInit() {
     this.route.params.subscribe(val => {
-      // this.param = this.route.snapshot.paramMap.get("p1");
-      // let storePage = this.subStores.find(x => x.name == this.param);
-
-      // if (storePage == undefined) {
-      //   this.getData('1');
-      // } else {
-      //   this.getData(storePage.ID);
-      // }
-      this.getData('1');
+      this.param = this.route.snapshot.paramMap.get("p1");
+      this.getData( this.param);
 
     });
   }
 
-  getData(id: string) {
-    this.apiService.getData("/Store/Get?storeId=1").then((result:any) => {
-        this.store = result;
-        this.storeLand = this.store.data.Catalog[0];
-        this.store.data.Catalog.splice(0, 1);
-     
+
+
+  getData(id:any) {
+    this.apiService.getData("/Catalog/GetCatalogById?id="+id).then((result:any) => {
+      this.catalogDetail = result;
     });
   };
-
-
-  selectSwipperConfig = { '1': 'movieConfig', '2': 'showConfig', '3': 'showConfig' };
-
-  public landConfig: SwiperConfigInterface = {
-    observer: true,
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  };    
 
   public movieConfig: SwiperConfigInterface = {
     slidesPerView: 6,

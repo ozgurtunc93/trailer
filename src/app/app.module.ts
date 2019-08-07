@@ -18,6 +18,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import 'hammerjs/hammer';
+import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 
 
 // AoT requires an exported function for factories
@@ -33,7 +35,9 @@ enableProdMode();
     FooterComponent,
     LeftMenuComponent,
     ContentComponent,
-    LoginComponent
+    LoginComponent,
+    CatalogComponent,
+    CatalogDetailComponent
   ],
   imports: [
     SwiperModule,

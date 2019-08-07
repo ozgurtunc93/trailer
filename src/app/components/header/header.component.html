@@ -5,19 +5,16 @@
   <a class="navbar-brand" href="#">Trailer App</a>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active" *ngFor="let itm of headers" style="padding: 0 5px;">
-        <a class="nav-link" routerLink="/store/{{itm.text}}">{{itm.text}} <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+      <li [ngClass]="{'nav-item active': itm.parents.length == 0, 'nav-item dropdown': itm.parents.length > 0 }" *ngFor="let itm of headers" style="padding: 0 5px;">
+        <a *ngIf="itm.parents.length == 0" class="nav-link" routerLink="/store/{{itm.text}}">{{itm.text}} <span class="sr-only">(current)</span></a>
+     
+        <a *ngIf="itm.parents.length > 0" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{itm.text}}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div *ngIf="itm.parents.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a  *ngFor="let subItm of itm.parents"  class="dropdown-item" href="#">{{subItm.text}}</a>        
         </div>
+     
       </li>
     </ul>
     <div class="my-2 my-lg-0">

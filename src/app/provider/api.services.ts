@@ -47,7 +47,7 @@ export class ApiService {
 
       let url = apiURL + parameters;
     //   const helper = new JwtHelperService();
-      this.http.get(url,{headers}).subscribe(res => {
+      this.http.get(url,{headers}).subscribe((res: any) => {
         //   const decodedToken = helper.decodeToken(res);
         console.info('1',res)
         setTimeout(() => {
@@ -73,7 +73,7 @@ export class ApiService {
       });
       let url = apiURL + func + parameters;
       console.log(url);
-      this.http.delete(url, { headers: headers,responseType:'text' }).subscribe(res => {
+      this.http.delete(url, { headers: headers,responseType:'text' }).subscribe((res: any) => {
         console.info("deleteData", res);
         resolve(res);
       }, (err) => {

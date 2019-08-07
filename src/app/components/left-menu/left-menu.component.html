@@ -3,19 +3,15 @@
         <i class="fa fa-2x fa-film" aria-hidden="true"></i>
   </div>
   <div id="mySidenav" class="sidenav" (swipeleft)="closeNav()">
-      <div class="" style="margin: 0 20px;">
+      <div class="categories" style="margin: 0 20px;">
           <div class="row">
             <div class="col-sm-12">
                 <a href="javascript:void(0)" class="close-btn text-right" (click)="closeNav()">&times;</a>
-
             </div>
-              <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 text-center" *ngFor="let item of categories.data">
-               <a href>
-                    <div class="categories-container">
-                      <!-- <img class="categories-img"  src="https://www.movieartarena.com/imgs/2fasthz.jpg" alt="..."> -->
-                      <div class="centered" style="font-size: 1.4rem;font-weight: bolder; letter-spacing:1px;text-shadow: 2px 2px 4px #000000;">{{item.TurkishName}}</div>
-                    </div> 
-                </a>
+              <div class="text-center" *ngFor="let item of categories">
+                    <a href>
+                        {{item.TurkishName}}
+                   </a>
               </div>
           </div>
       </div>

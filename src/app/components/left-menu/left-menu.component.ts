@@ -19,15 +19,15 @@ export class LeftMenuComponent implements OnInit {
 
 
   getData() {
-    this.apiService.getData("/Category/GetCategoryList").then((result) => {
-      this.categories = result;
+    this.apiService.getData("/Category/GetCategoryList").then((result:any) => {
+      this.categories = result.data;
     });
   };
 
 
   openNav() {
     console.log(1);
-    document.getElementById("mySidenav").style.width = "100%";
+    document.getElementById("mySidenav").style.width = "25%";
     document.getElementById("left-btn").style.display  = "none";
     // this.renderer.addClass(document.body, 'xx');
 

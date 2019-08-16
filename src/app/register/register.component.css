@@ -1,8 +1,8 @@
 .center{
-  margin: auto;
-  width: 50%;
-}
-.login-background{
+    margin: auto;
+    width: 50%;
+  }
+.register-background{
   background: url("https://specials-images.forbesimg.com/imageserve/5d52d1af2dedcb0008dfe442/960x0.jpg?cropX1=0&cropX2=1200&cropY1=0&cropY2=675");
   background-repeat: no-repeat;
   background-size: 100% 100%;

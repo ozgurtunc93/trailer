@@ -4,6 +4,7 @@ import { StoreComponent } from './store/store.component';
 import { ContentComponent } from './content/content.component';
 import { LoginComponent } from './login/login.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'catalog/:p1', component: CatalogDetailComponent },
   { path: ':p1/content/:p2', component: ContentComponent},
   { path: 'login', component: LoginComponent },
+  { path : 'register' , component : RegisterComponent},
   { path: '**', redirectTo: 'store/Watch', pathMatch: 'full' }
 
 ];

@@ -2,17 +2,17 @@
 <form class="center col-sm-4">
   <div class="form-group">
     <label>Email address</label>
-    <input id="email" type="text" [(ngModel)]="model.email" class="form-control" placeholder="Enter email">
+    <input type="text" [(ngModel)]="user.email" class="form-control" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label>Password</label>
-    <input id="password" type="password" [(ngModel)]="model.password"  class="form-control" placeholder="Password">
+    <input  type="password" [(ngModel)]="user.password"  class="form-control" placeholder="Password">
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input">
-    <label class="form-check-label">Check me out  {{model.email}}
-      </label>
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  
   </div>
-  <button  (click)="signIn(model)" class="btn btn-primary">Submit</button>
+  <input type="button" (click)="signIn(user)" class="btn btn-success" value="Submit">
 </form>
 </div>

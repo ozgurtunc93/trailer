@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../provider/api.services';
-import { Model } from './model';
+
 
 
 @Component({
@@ -9,16 +9,16 @@ import { Model } from './model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private model: Model = new Model();
-
+  
+  user = {'email': '', 'password': ''};
 
   constructor(private apiService: ApiService) {  }     
 
   ngOnInit() {
   }
   signIn(data: any) {
-    console.log(this.model)
-    this.apiService.postData("/User/Login", this.model).then((result) => {
+    console.log(data)
+    this.apiService.postData("/User/Login", data).then((result) => {
   });
 
   }

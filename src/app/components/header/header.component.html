@@ -14,9 +14,12 @@
         <div *ngIf="itm.parents.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a  *ngFor="let subItm of itm.parents"  class="dropdown-item" href="#">{{subItm.text}}</a>        
         </div>
-     
+        
+            
+        
       </li>
     </ul>
+   
     <div class="my-2 my-lg-0">
         <a class="nav-link" [routerLink]="['../../','login']">Login </a>
         <!-- <a class="nav-link" routerLink="/login">Login </a> -->

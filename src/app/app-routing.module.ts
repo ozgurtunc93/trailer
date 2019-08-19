@@ -7,6 +7,7 @@ import { CatalogDetailComponent } from './catalog-detail/catalog-detail.componen
 import { RegisterComponent } from './register/register.component';
 
 
+
 const routes: Routes = [
   { path: 'store/:p1', component: StoreComponent },
   { path: 'catalog/:p1', component: CatalogDetailComponent },

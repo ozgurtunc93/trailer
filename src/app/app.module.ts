@@ -21,7 +21,7 @@ import 'hammerjs/hammer';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
+
 
 
 // AoT requires an exported function for factories
@@ -40,8 +40,7 @@ enableProdMode();
     LoginComponent,
     CatalogComponent,
     CatalogDetailComponent,
-    RegisterComponent,
-    ProfileComponent
+    RegisterComponent
   ],
   imports: [
     SwiperModule,

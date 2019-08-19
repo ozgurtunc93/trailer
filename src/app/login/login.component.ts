@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
   signIn(data: any) {
     console.log(data)
     this.apiService.postData("/User/Login", data).then((result) => {

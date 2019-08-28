@@ -1,5 +1,11 @@
 
 /* You can add global styles to this file, and also import other style files */
+a {
+  color:#9575cd;
+}
+a:hover{
+  color:white;
+}
 body {
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -12,7 +18,7 @@ body {
     background-color: #232530;
 }
 .container-fluid {
-    min-height: 50vw;
+    min-height: 70vw;
 }
 .page {
     position: relative;
@@ -71,3 +77,5 @@ body {
 @media all and (max-width: 479px) {
 	
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

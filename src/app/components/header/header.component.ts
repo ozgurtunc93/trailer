@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
         if(data.parentDetailId){
           let ind = this.headers.map(x => x.id).indexOf(data.parentDetailId);	
           this.headers[ind].parents.push(data);
-          console.log(this.headers)
           // let subInd = this.headers.map(x => x.id).indexOf(data.id);	
           // this.headers.splice( index, 1 )
         }
@@ -41,7 +40,6 @@ export class HeaderComponent implements OnInit {
         }
       });
 
-      console.log(this.headers);
     });
   };
 

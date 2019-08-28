@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, enableProdMode } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,13 +21,33 @@ import 'hammerjs/hammer';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { RegisterComponent } from './register/register.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Material
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from "@angular/material/icon"; // <----- Here
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
+import {MatChipsModule} from '@angular/material/chips'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatDatepickerModule,MatNativeDateModule} from '@angular/material'; 
+const modules = [
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule,
+  MatCheckboxModule,
+  MatIconModule,
+  MatChipsModule,
+  MatSidenavModule,
+  MatDatepickerModule,
+  MatNativeDateModule 
+]; 
+//Material
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
+
 enableProdMode();
 @NgModule({
   declarations: [
@@ -41,11 +61,12 @@ enableProdMode();
     CatalogComponent,
     CatalogDetailComponent,
     RegisterComponent
-  ],
+    ],
   imports: [
     SwiperModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
@@ -55,9 +76,13 @@ enableProdMode();
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    ...modules
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

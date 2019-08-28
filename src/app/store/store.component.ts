@@ -32,7 +32,7 @@ export class StoreComponent {
       // } else {
       //   this.getData(storePage.ID);
       // }
-      this.getData('1');
+      // this.getData('1');
 
     });
   }

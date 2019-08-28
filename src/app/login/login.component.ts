@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../provider/api.services';
-
+import {FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -11,17 +11,17 @@ import { ApiService } from '../provider/api.services';
 export class LoginComponent implements OnInit {
   
   user = {'email': '', 'password': ''};
-
+  hide = true;
+  
   constructor(private apiService: ApiService) {  }     
 
   ngOnInit() {
   }
 
   signIn(data: any) {
-    console.log(data)
-    this.apiService.postData("/User/Login", data).then((result) => {
-  });
-
+      this.apiService.postData("/User/Login", data).then((result) => {
+    });
   }
+
 
 }

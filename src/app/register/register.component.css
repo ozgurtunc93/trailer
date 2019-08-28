@@ -1,9 +1,57 @@
-.center{
-    margin: auto;
-    width: 50%;
+
+.card{
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.7) !important;
   }
-.register-background{
-  background: url("https://specials-images.forbesimg.com/imageserve/5d52d1af2dedcb0008dfe442/960x0.jpg?cropX1=0&cropX2=1200&cropY1=0&cropY2=675");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  .card-header {
+    padding: 1.25rem 1.25rem 0.25rem 1.25rem;
+  }
+  .login_btn{
+    color: white;
+    background-color: #9575cd;
+    width: 100px;
+    }
+    
+    .login_btn:hover{
+    color: #673ab7;
+    background-color: white;
+    }
+  
+
+
+  ::ng-deep.mat-checkbox-frame {
+    border-color: #9575cd;
+  }
+
+  ::ng-deep input.mat-input-element {
+    color: white;
+  }
+  ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: white;
 }
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color:white;
+}
+::ng-deep  .mat-focused .mat-form-field-required-marker {
+  color:white;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #9575cd;
+}
+::ng-deep .mat-datepicker-toggle{
+  color:white ;
+}
+  .input-container > * {
+    width: 100%;
+    margin:3px 0;
+  }
+  .background-img {
+    background-image: url('https://wallpaperplay.com/walls/full/a/1/f/137807.jpg');
+    background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+
+  }

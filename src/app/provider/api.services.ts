@@ -5,7 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 import { map, catchError } from 'rxjs/operators';
 
-let apiURL = "http://test.kodummu.org/api";
+let apiURL = "http://kodummu.org/api";
 
 let token = localStorage.getItem('userToken');
 

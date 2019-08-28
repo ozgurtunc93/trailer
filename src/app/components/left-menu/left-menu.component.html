@@ -3,16 +3,16 @@
         <i class="fa fa-2x fa-film" aria-hidden="true"></i>
   </div>
   <div id="mySidenav" class="sidenav" (swipeleft)="closeNav()">
-      <div class="categories" style="margin: 0 20px;">
+      <div class="categoriess" style="margin: 0 20px;">
           <div class="row">
             <div class="col-sm-12">
                 <a href="javascript:void(0)" class="close-btn text-right" (click)="closeNav()">&times;</a>
             </div>
-              <div class="text-center" *ngFor="let item of categories">
-                    <a href>
-                        {{item.TurkishName}}
-                   </a>
-              </div>
+            <mat-chip-list aria-label="Color selection" style="margin: 5px;">
+                <mat-chip *ngFor="let item of categories" selected [color]="'primary'">
+                  {{item.Name}}
+                </mat-chip>
+              </mat-chip-list>
           </div>
       </div>
      

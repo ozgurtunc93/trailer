@@ -7,12 +7,14 @@ import { ApiService } from '../provider/api.services';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user = {'name': '', 'surname': '', 'email': '', 'password': '', 'confirmpassword': '' };
+  user = {'name': '', 'surname': '', 'email': '', 'password': '', 'birthDate': '' };
+  hide = true;
+
   constructor(private apiService : ApiService) { }
 
   ngOnInit() {
   }
-  Register(data: any) {
+  signUp(data: any) {
     console.log(data)
     this.apiService.postData("/User/Register", data).then((result) => {
   });

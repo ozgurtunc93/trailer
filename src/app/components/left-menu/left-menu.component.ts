@@ -16,10 +16,10 @@ export class LeftMenuComponent implements OnInit {
     this.getData();
   }
 
-
+  showFiller = false;
 
   getData() {
-    this.apiService.getData("/Category/GetCategoryList").then((result:any) => {
+    this.apiService.getData("/Category/GetCategories").then((result:any) => {
       this.categories = result.data;
     });
   };

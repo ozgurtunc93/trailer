@@ -29,16 +29,17 @@
           </div>
           <div class="input-container">
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="birthDate" [(ngModel)]="user.birthDate" >
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="input-container">
-            <mat-form-field>
               <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password"
                 [(ngModel)]="user.password">
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Re-enter your password" [type]="reHide ? 'password' : 'text'" name="password"
+                [(ngModel)]="user.rePassword">
+              <button mat-icon-button matSuffix (click)="reHide = !reHide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>

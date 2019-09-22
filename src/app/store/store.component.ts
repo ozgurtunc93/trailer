@@ -32,13 +32,13 @@ export class StoreComponent {
       // } else {
       //   this.getData(storePage.ID);
       // }
-      // this.getData('1');
+       this.getData('1');
 
     });
   }
 
   getData(id: string) {
-    this.apiService.getData("/Store/Get?storeId=1").then((result:any) => {
+    this.apiService.getData("/Store/GetStoreDetails?Id=1").then((result:any) => {
         this.store = result;
         this.storeLand = this.store.data.Catalog[0];
         this.store.data.Catalog.splice(0, 1);

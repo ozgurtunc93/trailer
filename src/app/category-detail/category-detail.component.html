@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top:10px;"  infinite-scroll
+  [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollUpDistance]="scrollUpDistance"
+  [infiniteScrollThrottle]="throttle"
+  (scrolled)="getData(param)">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2"  *ngFor="let itm of categoryDetail.data.CategoryMovies">
+      <div style="width: 100%">
+        <div class="box">
+          <img id="img" class="img-fluid content-image"
+            src="{{itm.StandartVerticalPath}}" alt=""
+            width="100%">
+          <div class="box-content">
+            <h3 class="title"> <img class="icon" src="assets/img/imdb.png" style="max-width:50px;z-index: 2;">
+              <span style="vertical-align: text-top">{{itm.ImdbRating}}</span>
+            </h3>
+          </div>
+          <svg  class="curve2" x="0px" y="0px" width="150px" height="150px"
+            viewBox="0 0 150 50">
+            <path d="M1.114,7.567C87.544-33.817,150,150.5,150,150.5H1.361L1.114,7.567z">
+            </path>
+          </svg>
+        </div>
+        <h5 class="tt" style="margin-top:5px; ">{{itm.Name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

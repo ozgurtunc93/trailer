@@ -5,7 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 import { map, catchError } from 'rxjs/operators';
 
-let apiURL = "http://kodummu.org/api";
+let apiURL = "http://test.api.ilkgosterim.com/api";
 
 let token = localStorage.getItem('userToken');
 
@@ -18,16 +18,13 @@ export class ApiService {
 
   constructor(private http: HttpClient,private spinner: NgxSpinnerService) { }
 
-  postData(parameters: any,body :any) {
+  postData(  func: String,body: any) {
     return new Promise((resolve, reject) => {
-      // let headers = new HttpHeaders().set('apiKey', token);
-       let url = apiURL  + parameters ;
-       console.log(body,"Body");
-       this.http.post(url,body).subscribe(res => {
-        console.info("postData", res);
+       let url = apiURL + func ;
+       this.http.post(url,body).subscribe((res: any) => {
         resolve(res);
       }, (err) => {
-        resolve(err);       
+        resolve(err.error);       
       });
     });
   }
@@ -46,18 +43,12 @@ export class ApiService {
       });  
 
       let url = apiURL + parameters;
-    //   const helper = new JwtHelperService();
       this.http.get(url,{headers}).subscribe((res: any) => {
-        //   const decodedToken = helper.decodeToken(res);
-        console.info('1',res)
         setTimeout(() => {
-          /** spinner ends after 5 seconds */
           this.spinner.hide();
       }, 1000);
           resolve(res);
-
       }, (err) => {
-          console.log("Patladi",err);
           resolve(err);
       });
     });
@@ -72,13 +63,10 @@ export class ApiService {
         'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept'
       });
       let url = apiURL + func + parameters;
-      console.log(url);
       this.http.delete(url, { headers: headers,responseType:'text' }).subscribe((res: any) => {
-        console.info("deleteData", res);
         resolve(res);
       }, (err) => {
         resolve(err);
-        //this.app.getActiveNav().push(ErrorPage);
       });
     });
   }

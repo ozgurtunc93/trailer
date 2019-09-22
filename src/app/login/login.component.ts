@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../provider/api.services';
-import {FormControl, Validators} from '@angular/forms';
-
+import { ToastrService } from 'ngx-toastr';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,16 +12,35 @@ export class LoginComponent implements OnInit {
   
   user = {'email': '', 'password': ''};
   hide = true;
+  userID: any = 0;
   
-  constructor(private apiService: ApiService) {  }     
+  constructor(private router: Router, private authenticationService: AuthenticationService,private toastr: ToastrService) {  }     
 
   ngOnInit() {
+    this.userID = parseInt(localStorage.getItem("userID"));
+    if (this.userID > 0) {
+      console.log(this.userID)
+      this.router.navigate(["/home"]);
+    }
   }
 
-  signIn(data: any) {
-      this.apiService.postData("/User/Login", data).then((result) => {
-    });
+  
+  signIn(data:any) {
+    if (data.email != "" && data.password != "") {
+      this.authenticationService.login(data).then((result:any) => {
+        if (result.isSuccess) {
+            this.router.navigate(["/home"]);
+        } 
+        if(result.isSuccess == false){
+          this.toastr.error(result.message,'', {
+            timeOut: 3000,
+            progressBar:true
+          });
+        }
+      });
+    } else {
+     //TODO
+    }
   }
-
 
 }

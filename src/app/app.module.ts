@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, enableProdMode } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationService } from './services/authentication.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,13 +23,18 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ToastrModule } from 'ngx-toastr';
+
+
 //Material
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from "@angular/material/icon"; // <----- Here
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
 import {MatChipsModule} from '@angular/material/chips'; 
 import {MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatDatepickerModule,MatNativeDateModule} from '@angular/material'; 
+import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
+import { CategoryDetailComponent } from './category-detail/category-detail.component'; 
 const modules = [
   MatButtonModule,
   MatFormFieldModule,
@@ -60,12 +66,15 @@ enableProdMode();
     LoginComponent,
     CatalogComponent,
     CatalogDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    CategoryDetailComponent
     ],
   imports: [
     SwiperModule,
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -78,9 +87,10 @@ enableProdMode();
       }
     }),
     BrowserAnimationsModule,
+    InfiniteScrollModule,
     ...modules
   ],
-  providers: [ApiService],
+  providers: [ApiService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

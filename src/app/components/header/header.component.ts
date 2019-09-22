@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/provider/api.services';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +10,19 @@ import { ApiService } from 'src/app/provider/api.services';
 })
 export class HeaderComponent implements OnInit {
   headers: any=[];
+  firstName: string;
 
-  constructor (private apiService: ApiService) {}
+  constructor (private apiService: ApiService, private router: Router, private authenticationService: AuthenticationService) {
+    authenticationService.getLoggedInName.subscribe(name => this.changeName(name));
+  }
    
   ngOnInit() {
+    this.firstName = localStorage.getItem("name");
     this.getData();
+  }
+
+  private changeName(name: string): void {
+    this.firstName = name;
   }
 
 

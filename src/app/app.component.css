@@ -1,0 +1,12 @@
+.left-btn {
+    padding: 10px;
+    background-color: #9575cd;
+    transition: 1s;
+    position: fixed; top:50%; left:0; color:black;z-index: 2;border-top-right-radius: 25%;
+    color:white;
+    border-bottom-right-radius: 25%;
+    cursor: pointer;
+  }
+  ::ng-deep .mat-drawer-container{
+      color:white;
+  }

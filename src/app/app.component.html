@@ -1,8 +1,17 @@
-<app-header></app-header>
-<router-outlet style="min-height:100vw ">
-  <app-left-menu></app-left-menu>
-  <ngx-spinner bdOpacity=0 bdColor = "#333" size="large" color="#fff" type="pacman" [fullScreen]="true">
-    <p style="color: white"> Loading... </p>
-  </ngx-spinner>
-</router-outlet>
-<app-footer></app-footer>
+
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <app-left-menu></app-left-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <app-header></app-header>
+      <router-outlet>
+          <div class="left-btn" (click)="sidenav.open()" >
+              <i class="fa fa-2x fa-film" aria-hidden="true"></i>
+          </div>
+      </router-outlet>
+  </mat-sidenav-content>
+  <app-footer></app-footer>
+</mat-sidenav-container>
+

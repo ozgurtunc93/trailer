@@ -47,7 +47,7 @@ ngOnInit() {
 }
 
 getData(contentID: string) {
-  this.apiService.getData("Movies/MovieDetails?id="+contentID ).then((result) => {
+  this.apiService.getData("/Movie/GetMovieDetails?id="+contentID ).then((result:any) => {
     this.contentDetail = result;
     console.log(this.contentDetail);
   });

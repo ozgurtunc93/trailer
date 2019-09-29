@@ -9,7 +9,7 @@ position: relative;"  >
   <div class="row" style="padding: 2% 10%">
     <div class="col-sm-3 text-center">
       <img class="img-fluid shodow-filter"
-        src="{{ contentDetail.data.moviesDetailsPicture[0].picturePath}}">
+        src="{{ contentDetail.data.MoviesDetailsPicture[0].PicturePath}}">
       <div style="text-align: center; margin-top:20px;">
         <button type="button" class="btn btn-detail">{{'Trailer' | translate }}</button>
       </div>
@@ -26,28 +26,28 @@ position: relative;"  >
     </div>
     <div class="col-sm-9">
       <div>
-        <h2>{{contentDetail.data.name}}</h2>
-        <span>{{contentDetail.data.year}}</span>&nbsp;|&nbsp;
-        <span>{{contentDetail.data.runTime}}</span>&nbsp;|&nbsp;
+        <h2>{{contentDetail.data.Name}}</h2>
+        <span>{{contentDetail.data.Year}}</span>&nbsp;|&nbsp;
+        <span>{{contentDetail.data.RunTime}}</span>&nbsp;|&nbsp;
         <!-- <span>{{contentDetail.data.runTime}}</span>&nbsp;|&nbsp; -->
-        <span *ngFor="let itm of contentDetail.data.moviesDetailsCategory; let last = last;  let index = index;">{{itm.categoryName}}{{last ? ' ' : ', '}}</span>&nbsp;|&nbsp;
-        <span *ngFor="let itm of contentDetail.data.moviesDetailsCountry; let last = last;  let index = index;">{{itm.country}}{{last ? ' ' : ', '}}</span>&nbsp;|&nbsp;
-        <span *ngFor="let itm of contentDetail.data.moviesDetailsLanguage let last = last;  let index = index;">{{itm.language}}{{last ? ' ' : ', '}}</span>
+        <span *ngFor="let itm of contentDetail.data.MoviesDetailsCategory; let last = last;  let index = index;">{{itm.CategoryName}}{{last ? ' ' : ', '}}</span>&nbsp;|&nbsp;
+        <span *ngFor="let itm of contentDetail.data.MoviesDetailsCountry; let last = last;  let index = index;">{{itm.Country}}{{last ? ' ' : ', '}}</span>&nbsp;|&nbsp;
+        <span *ngFor="let itm of contentDetail.data.MoviesDetailsLanguage let last = last;  let index = index;">{{itm.Language}}{{last ? ' ' : ', '}}</span>
 
         <br><br>
-        <h6>{{contentDetail.data.description}}</h6>
+        <h6>{{contentDetail.data.Description}}</h6>
       </div>
     </div>
   </div>
   <div class="row" style="padding: 2% 10%">
     <div class="swiper-container" [swiper]="contentArtistConfig" style="z-index: 1; width: 100%;">
       <div class="swiper-wrapper" style="z-index: 1;">
-        <div *ngFor="let subItm of contentDetail.data.moviesDetailsCast" class="swiper-slide">
+        <div *ngFor="let subItm of contentDetail.data.MoviesDetailsCast" class="swiper-slide">
           <div class="text-center">
-            <a [routerLink]="['../../','artist', subItm.artistID]">
+            <a>
               <img class="img-fluid"
                 src="https://upload.wikimedia.org/wikipedia/commons/5/51/Brad_Pitt_Fury_2014.jpg" style="  object-fit: cover; ">
-                <p style="margin-top:3px;color:white;">{{subItm.name}}</p>
+                <p style="margin-top:3px;color:white;">{{subItm.Name}}</p>
               </a>
           </div>
         </div>

@@ -32,7 +32,7 @@ export class ApiService {
 
   getData(parameters: string) {
   /** spinner starts on init */
-  this.spinner.show();
+  // this.spinner.show();
 
 
     return new Promise((resolve, reject) => {
@@ -44,9 +44,9 @@ export class ApiService {
 
       let url = apiURL + parameters;
       this.http.get(url,{headers}).subscribe((res: any) => {
-        setTimeout(() => {
-          this.spinner.hide();
-      }, 1000);
+      //   setTimeout(() => {
+      //     this.spinner.hide();
+      // }, 1000);
           resolve(res);
       }, (err) => {
           resolve(err);

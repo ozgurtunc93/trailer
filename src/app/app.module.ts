@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 import { ContentComponent } from './content/content.component';
 import { LoginComponent } from './login/login.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 import { ApiService } from './provider/api.services';
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -28,24 +29,81 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 //Material
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from "@angular/material/icon"; // <----- Here
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
-import {MatChipsModule} from '@angular/material/chips'; 
-import {MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
-import { CategoryDetailComponent } from './category-detail/category-detail.component'; 
-const modules = [
+import {
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
   MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatRippleModule,
+  MatButtonToggleModule,
+  MatCardModule,
   MatCheckboxModule,
-  MatIconModule,
   MatChipsModule,
-  MatSidenavModule,
   MatDatepickerModule,
-  MatNativeDateModule 
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+  MatFormFieldModule,
+} from '@angular/material';
+
+const modules = [
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
 ]; 
 //Material
 
